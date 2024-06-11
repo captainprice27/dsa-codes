@@ -1,6 +1,6 @@
 link : https://leetcode.com/problems/patching-array/description/   
 
-> GREEDY : At each step, we are making the locally optimal choice (adding the smallest number that we cannot form yet) to ensure we cover as large a range as possible with each addition.
+> GREEDY : At each step, we are making the locally optimal choice (adding the smallest number that we cannot form yet) to ensure we cover as large a range as possible with each addition.   
 > This strategy ensures that we use the minimum number of patches since each patch significantly extends the range of numbers that can be formed.
 
 
