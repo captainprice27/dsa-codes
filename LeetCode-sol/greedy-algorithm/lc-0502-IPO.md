@@ -1,0 +1,75 @@
+link : https://leetcode.com/problems/ipo/description/?envType=daily-question&envId=2024-06-15
+
+```cpp
+class Solution {
+public:
+    int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) 
+    {
+       // w --> initial capital
+       // n --> total projects , profits.size() , capital.size()
+       // k --> <=n , total projects to  complete
+
+       int n = profits.size() ; // == capital.size()
+    //    if(k > n) return -1 ;//edge case
+
+       // vector<pair> to store profit and capital
+       vector<pair<int, int>> projects;
+        for (int i = 0; i < n; i++) 
+        {
+            //projects[i] = {capital[i], profits[i]};
+            projects.push_back({capital[i], profits[i]});
+            // hence projects[i].first = capital[i]
+        }
+        // sort wrt capital[i]
+        sort(projects.begin(), projects.end());
+
+        priority_queue<int> pq; // used to store capital
+        int i = 0 ;
+        while(k--)
+        {
+            //int i = 0 ;
+            // capital[i] can't be greater than 'w'
+            while(i < n && projects[i].first <= w)
+            {
+                pq.push(projects[i].second);
+                i++;
+            }
+
+            // if priority queue is empty, break early before top()
+            if (pq.empty()) break;    // --> VERY VERY IMPORTANT
+
+            // update w
+            // if same capital , upper projects == more profit
+            w += pq.top() ;
+            pq.pop() ; // after adding to w , pop element
+        }
+
+        return w ;
+    }
+};
+
+```
+
+> when we are declaring a vector without specifying size (say n) , we can only push_back elements . else if we want to use say vector[i] = vector2[i] then you have to specify the size
+## example
+
+```cpp
+        vector<pair<int, int>> projects;
+        for (int i = 0; i < n; i++) 
+        {
+            //projects[i] = {capital[i], profits[i]};
+            projects.push_back({capital[i], profits[i]});
+            // hence projects[i].first = capital[i]
+        }
+```
+OR . 
+
+```cpp
+        vector<pair<int, int>> projects(n);
+        for (int i = 0; i < n; i++) 
+        {
+            projects[i] = {capital[i], profits[i]};
+            //projects.push_back({capital[i], profits[i]});
+            // hence projects[i].first = capital[i]
+        }
+```
