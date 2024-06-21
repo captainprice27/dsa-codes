@@ -27,3 +27,37 @@ public:
     }
 };
 ```
+
+chatGPT 
+```cpp
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int n = cardPoints.size();
+        int total_sum = 0;
+
+        // Calculate the sum of the first k elements
+        for (int i = 0; i < k; ++i) {
+            total_sum += cardPoints[i];
+        }
+
+        // Initialize max_sum with total_sum of the first k elements
+        int max_sum = total_sum;
+
+        // Now slide the window from the end of the array to the beginning
+        for (int i = 0; i < k; ++i) {
+            // Subtract the i-th element from the start and add the i-th element from the end
+            total_sum -= cardPoints[k - 1 - i];
+            total_sum += cardPoints[n - 1 - i];
+            max_sum = max(max_sum, total_sum);
+        }
+
+        return max_sum;
+    }
+};
+
+```
