@@ -1,6 +1,6 @@
 // link : https://leetcode.com/problems/house-robber/description/ 
 
-## brute force (tstcases passed but TLE)
+## brute force (testcases passed but TLE)
 > The time complexity of this solution is O(2^n) because for each house, we are making two recursive calls (pick and unpick) which results in an exponential number of recursive calls. 
 
 > The space complexity is O(n) because the recursive calls use a maximum of n levels on the call stack due to the depth of the recursion.
