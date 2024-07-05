@@ -49,3 +49,51 @@ public:
 };
 
 ```
+
+## optimised approach with space optimisation approach ...
+> JUST COPY PASTE SPACE OPTI ALGO FROM HOUSE-ROBBER-2 THEN SOME TRICKS
+>
+>The time complexity of this solution is O(n) because we are iterating through the input array once to calculate the maximum amount that can be robbed.
+> The space complexity is O(n) because we are using two additional arrays to store the subarrays excluding the first and last elements.
+> 
+```cpp
+class Solution {
+
+    private : 
+    int helper(vector<int> &nums)
+    {
+        int n = nums.size();
+        if (n == 0) return 0;
+        if (n == 1) return nums[0];
+
+        int prev2 = nums[0];
+        int prev = max(nums[0], nums[1]);
+
+        for (int i = 2; i < n; i++) {
+            int pick = nums[i] + prev2;
+            int unpick = prev;
+            int curr_i = max(pick, unpick);
+            prev2 = prev;
+            prev = curr_i;
+        }
+        
+        return prev;
+    }
+
+public:
+    int rob(vector<int>& nums) 
+    {   
+        int n = nums.size();
+        if(n == 1) return nums[0] ;
+        vector<int> temp1 , temp2 ;
+        for(int i=0;i<n;i++)
+        {
+            if(i != 0) temp1.push_back(nums[i]);
+            if(i != n-1) temp2.push_back(nums[i]);
+        }
+
+        return max(helper(temp1),helper(temp2));
+    }
+};
+
+```
