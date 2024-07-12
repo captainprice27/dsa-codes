@@ -125,3 +125,21 @@ public:
     }
 };
 ```
+
+
+## Similar DP Problems
+Many problems can be seen as variants or inspired by the 0-1 Knapsack problem, including:  
+
+>**Subset Sum Problem:** Determine if there is a subset of the given set with a sum equal to a given sum.
+>
+>**Partition Equal Subset Sum:** Determine if the array can be partitioned into two subsets with equal sums.
+>
+>**Minimum Subset Sum Difference:** Partition the set into two subsets such that the difference between their sums is minimized.
+>
+>**Coin Change Problem:** Given an amount and an array of coins, determine the minimum number of coins needed to make up that amount.
+>
+>**Combination Sum:** Find all unique combinations in an array where the numbers sum up to a target.
+>
+>**Target Sum:** Find the number of ways to assign symbols to make the sum of elements equal to a target.  
+
+These problems often involve choosing items or numbers under certain constraints and can be effectively solved using dynamic programming techniques similar to those used for the 0-1 Knapsack problem.
