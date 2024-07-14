@@ -1,6 +1,11 @@
 link : https://practice.geeksforgeeks.org/problems/rod-cutting0840/1
 
 ## 1-indexed recursion : 
+
+> The time complexity of the cutRod function is O(2^n) because for each length of the rod, we are recursively exploring all possible ways to cut it.
+> The space complexity is O(n) because of the recursive calls on the call stack, where n is the length of the rod.  
+
+> This solution has exponential time complexity because it explores all possible combinations of cutting the rod, making it inefficient for large input sizes. It can be optimized using dynamic programming to reduce the time complexity to O(n^2) by storing and reusing the results of subproblems.
 ```cpp
 
 class Solution {
@@ -69,7 +74,10 @@ public:
 
 ```
 
-## most imp --> space optimised to remove xtra var.
+## most imp --> space optimised to remove xtra var. 1-indexinng
+
+> The time complexity of this solution is O(n^2) because we have two nested loops that iterate up to n.
+> The space complexity is O(n) because we are using a vector of size n+1 to store the maximum profit for each rod length.
 
 ```cpp
 
