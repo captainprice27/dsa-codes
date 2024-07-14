@@ -55,3 +55,90 @@ class Solution {
 };
 
 ```
+
+// ## recursive : 
+```cpp
+#include <vector>
+using namespace std;
+
+class Solution {
+  public:
+    int countPartitions(int n, int d, vector<int>& arr) {
+        int totalSum = 0;
+        for (int i = 0; i < n; i++) {
+            totalSum += arr[i];
+        }
+
+        if ((totalSum + d) % 2 != 0 || d > totalSum) {
+            return 0;
+        }
+
+        int target = (totalSum + d) / 2;
+        return countSubsets(arr, n, target);
+    }
+
+  private:
+    int countSubsets(vector<int>& arr, int n, int sum)
+  {
+        if (sum == 0) return 1;
+        if (n == 0) return 0;
+
+        if (arr[n - 1] <= sum)
+        {
+            return countSubsets(arr, n - 1, sum) + countSubsets(arr, n - 1, sum - arr[n - 1]);
+        }
+        else
+        {
+            return countSubsets(arr, n - 1, sum);
+        }
+    }
+};
+
+
+```
+
+
+### memo technique : 
+```cpp
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+class Solution {
+  public:
+    int countPartitions(int n, int d, vector<int>& arr) {
+        int totalSum = 0;
+        for (int i = 0; i < n; i++) {
+            totalSum += arr[i];
+        }
+
+        if ((totalSum + d) % 2 != 0 || d > totalSum) {
+            return 0;
+        }
+
+        int target = (totalSum + d) / 2;
+        unordered_map<string, int> memo;
+        return countSubsets(arr, n, target, memo);
+    }
+
+  private:
+    int countSubsets(vector<int>& arr, int n, int sum, unordered_map<string, int>& memo) {
+        if (sum == 0) return 1;
+        if (n == 0) return 0;
+
+        string key = to_string(n) + ',' + to_string(sum);
+        if (memo.find(key) != memo.end()) {
+            return memo[key];
+        }
+
+        if (arr[n - 1] <= sum) {
+            memo[key] = (countSubsets(arr, n - 1, sum, memo) + countSubsets(arr, n - 1, sum - arr[n - 1], memo)) % MOD;
+        } else {
+            memo[key] = countSubsets(arr, n - 1, sum, memo) % MOD;
+        }
+        return memo[key];
+    }
+};
+
+
+```
