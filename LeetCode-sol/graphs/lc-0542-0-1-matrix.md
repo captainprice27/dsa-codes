@@ -53,3 +53,19 @@ public:
 };
 
 ```
+
+### explanation : 
+>Detailed Explanation:
+**Queue Initialization:**
+
+All cells containing 0 are enqueued initially. These cells are the starting points for BFS as their distances are already known (0).    
+**BFS Traversal:**
+
+The BFS loop continues until the queue is empty. Each iteration processes one cell from the queue.   
+**Processing Each Cell:**     
+
+For each cell (r, c) dequeued, we check its 4 possible neighbors: right (0, 1), down (1, 0), left (0, -1), and up (-1, 0).
+For each neighbor (nr, nc), if it is within the matrix bounds, we check if the current path to this neighbor is shorter than its previously known distance. If it is, we update the distance and enqueue this neighbor for further processing.    
+**Distance Update:**    
+
+If the distance from the current cell to the neighbor (nr, nc) is less than its current known distance, update the neighbor's distance and add it to the queue for further exploration.
