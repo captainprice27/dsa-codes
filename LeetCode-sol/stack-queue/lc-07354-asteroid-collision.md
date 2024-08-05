@@ -1,5 +1,9 @@
 link : https://leetcode.com/problems/asteroid-collision/description/  
 
+> overall, there are totally 4 scenarios will happen: **1.(+ +)  2.(- -)  3. (+ -)  4.(- +)**
+when collision happens: only 3 which is **(+ -)**
+use a stack to keep track of the previous and compare current value with previous ones
+
 >The time complexity of this solution is O(n), where n is the number of asteroids in the input vector. This is because we iterate through each asteroid once and perform constant time operations for each asteroid.
 
 >The space complexity of this solution is O(n), where n is the number of asteroids in the input vector. This is because we use a stack to keep track of the asteroids, and in the worst case scenario, the stack could contain all the asteroids.
