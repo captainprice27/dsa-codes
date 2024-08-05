@@ -1,5 +1,7 @@
 link : https://leetcode.com/problems/asteroid-collision/description/  
 
+also discussion section of : https://leetcode.com/problems/asteroid-collision/solutions/109694/java-c-clean-code/
+
 > overall, there are totally 4 scenarios will happen: **1.(+ +)  2.(- -)  3. (+ -)  4.(- +)**
 when collision happens: only 3 which is **(+ -)**
 use a stack to keep track of the previous and compare current value with previous ones
