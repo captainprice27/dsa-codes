@@ -8,4 +8,4 @@
 7. Unable to clear OA ? : https://leetcode.com/discuss/interview-question/3789560/Not-able-to-clear-OA
 8. Template for DP : https://leetcode.com/discuss/interview-question/1380561/Template-For-Dynamic-programming
 9. OOPS : https://leetcode.com/discuss/interview-question/3087696/Complete-Oops-in-one-PDF-oror-C%2B%2B-oror-Easy-to-understand
-10. 
+10. https://leetcode.com/discuss/interview-question/2806434/Leetcode-Google-or-Microsoft-or-Amazon-or-Atlassian-or-Apple-Top-100-Interview-questions(last-6-months)
