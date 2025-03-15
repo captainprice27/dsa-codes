@@ -74,3 +74,20 @@ private:
     }
 };
 ```
+
+
+**Explanation**
+Base Case: If head is null or has one node, return it (already sorted).
+Find Middle:
+slow moves one step, fast moves two.
+Start fast at head->next to ensure proper split (e.g., for 2 nodes, left gets 1, right gets 1).
+When fast reaches the end, slow is at the last node of the first half.
+Break the link: slow->next = nullptr.
+Recursion:
+Sort the left half (head to slow).
+Sort the right half (secondHalf to end).
+Merge:
+Use a dummy node to build the merged list.
+Compare l1 and l2 values, linking the smaller one to curr->next.
+Attach any remaining nodes from either list.
+Return: New head from merge.
