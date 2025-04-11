@@ -13,7 +13,7 @@ The provided implementation of Dijkstra's algorithm has the following time and s
 1. The space complexity is primarily determined by the storage of the graph and the distance array. The adjacency list representation of the graph requires O(V + E) space.
 2. The distance array requires O(V) space to store the shortest distances from the source to each vertex.
 3. The priority queue can also hold up to O(V) elements in the worst case.
-4. Thus, the overall space complexity is **O(V + E)**.
+4. Thus, the overall space complexity is `O(V + E)`.
 
 In summary, the time complexity is **O((V + E) log V)** and the space complexity is **O(V + E)**.
 
